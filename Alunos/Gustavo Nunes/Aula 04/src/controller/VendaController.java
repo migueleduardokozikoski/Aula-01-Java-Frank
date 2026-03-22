@@ -39,7 +39,7 @@ public class VendaController {
                 break;
 
             case 2:
-               // mostraOpListagem();
+                mostraOpListagem();
                 break;
 
             case 3:
@@ -64,7 +64,7 @@ public class VendaController {
             op = io.mostraMenuListagem();
             processaOpListagem(op);
 
-        } while (op != 6);
+        } while (op != 5);
     }
 
     // direciona usuário para opção escolhida
@@ -73,21 +73,22 @@ public class VendaController {
         switch (op){
 
             case 1:
+                listaTodas();
                 break;
 
             case 2:
+                listaAno();
                 break;
 
             case 3:
+                listaMes();
                 break;
 
             case 4:
+                listaDia();
                 break;
 
             case 5:
-                break;
-
-            case 6:
                 break;
 
             default:
@@ -133,27 +134,57 @@ public class VendaController {
         }
     }
 
-    // Lista compras realizadas
-    private void listaCompras() {
+    // Lista todas as compras realizadas
+    private void listaTodas(){
+        io.listaCompras(vendas);
+    }
 
-        if (vendas.isEmpty()) {
-            System.out.println("\nNenhuma compra cadastrada.");
-            return;
+    // Lista compras por ano
+    private void listaAno(){
+        ArrayList<Venda> vendas = new ArrayList<>();
+
+        int ano = io.pedeAno();
+
+        for (Venda m : this.vendas) {
+            if(m.getYear() == ano){
+                vendas.add(m);
+            }
         }
 
-        System.out.printf(
-                "\n--------------------------------------------------------------------------\n" +
-                "  %-3s   %-10s   %-10s   %-10s   %-10s   %-10s  \n" +
-                "--------------------------------------------------------------------------\n",
-                "ID", "DATA", "QUANTIDADE", "V.TOTAL", "DESCONTO", "V.PAGO");
-
-        for (Venda m : vendas) {
-            System.out.println(m);
-        }
-
-        System.out.println("--------------------------------------------------------------------------");
+        io.listaCompras(vendas);
 
     }
+
+    // Lista compras por mês
+    private void listaMes(){
+        ArrayList<Venda> vendas = new ArrayList<>();
+
+        int mes = io.pedeAno();
+
+        for (Venda m : this.vendas) {
+            if(m.getMonth() == mes){
+                vendas.add(m);
+            }
+        }
+
+        io.listaCompras(vendas);
+    }
+
+    // Lista compras por dia
+    private void listaDia(){
+        ArrayList<Venda> vendas = new ArrayList<>();
+
+        int dia = io.pedeAno();
+
+        for (Venda m : this.vendas) {
+            if(m.getDay() == dia){
+                vendas.add(m);
+            }
+        }
+
+        io.listaCompras(vendas);
+    }
+
 
     // Cadastra nova compra
     private void cadastraVenda() {
@@ -166,8 +197,6 @@ public class VendaController {
 
         io.exibeSucessoCadastro();
     }
-
-    // Mostra menu de Cálculo
 
     // Calculo do Preço
     private void calculaPreco() {

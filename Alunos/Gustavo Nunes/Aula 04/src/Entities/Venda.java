@@ -20,8 +20,17 @@ public class Venda {
         this.dataVenda = LocalDate.now();
     }
 
-    public LocalDate getDataVenda() {
-        return dataVenda;
+    // retornam
+    public int getYear() {
+        return dataVenda.getYear();
+    }
+
+    public int getMonth() {
+        return dataVenda.getMonthValue();
+    }
+
+    public int getDay() {
+        return dataVenda.getDayOfMonth();
     }
 
     @Override

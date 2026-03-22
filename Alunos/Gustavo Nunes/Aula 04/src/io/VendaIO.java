@@ -2,6 +2,8 @@ package io;
 
 import Entities.Venda;
 
+import java.time.LocalDate;
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -32,7 +34,7 @@ public class VendaIO {
                 "[2] - Por ano\n" +
                 "[3] - Por mes\n" +
                 "[4] - por dia\n" +
-                "[6] - Voltar" +
+                "[5] - Voltar" +
                 LINHA_MENU +
                 "Entre com a opção : ");
 
@@ -70,7 +72,7 @@ public class VendaIO {
     }
 
     // Lista compras realizadas
-    private void listaCompras(ArrayList<Venda> vendas) {
+    public void listaCompras(ArrayList<Venda> vendas) {
 
         if (vendas.isEmpty()) {
             System.out.println("\nNenhuma compra encontrada.");
@@ -79,7 +81,7 @@ public class VendaIO {
 
         System.out.printf(
                 LINHA_TABELA +
-                "  %-3s   %-10s   %-10s   %-10s   %-10s   %-10s  \n" +
+                "  %-3s   %-10s   %-10s   %-10s   %-10s   %-10s   " +
                 LINHA_TABELA,
                 "ID", "DATA", "QUANTIDADE", "V.TOTAL", "DESCONTO", "V.PAGO");
 
@@ -91,6 +93,15 @@ public class VendaIO {
 
     }
 
+    // Ano da listagem
+    public int pedeAno(){
+        System.out.println("\nAno: ");
+        return scanner.nextInt();
+    }
+
+    // Mês da listagem
+
+    // Dia da listagem
 
     // Resultado de venda
     public void mostraResultadoVenda(double preco){
