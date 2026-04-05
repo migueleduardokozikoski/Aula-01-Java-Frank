@@ -10,11 +10,12 @@ public class Calculadora {
     static ArrayList<LocalDate> datas = new ArrayList<>();
     static LocalDate dataAtual;
     static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    
     public static void main(String[] args)  {
-        try (Scanner scanner = new Scanner(System.in)) {
+         Scanner scanner = new Scanner(System.in);
             MostrarMenu(scanner);
-        }
     }
+
     public static void MostrarMenu(Scanner scanner){
         int opcao;
         do{
@@ -109,7 +110,7 @@ public class Calculadora {
 
     private static void pesquisarVendasPorData(Scanner scanner) {
          System.out.println("Digite a data (dd/MM/yyyy): ");
-    String texto = scanner.next();
+        String texto = scanner.next();
 
     LocalDate dataBusca = LocalDate.parse(texto, formatter);
 
