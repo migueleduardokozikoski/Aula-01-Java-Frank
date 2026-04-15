@@ -48,6 +48,6 @@ public class Planta {
     }
 
      public String toString() {
-        return "|Planta: " + nome + "    Valor: " + total;
+        return "|Planta: " + nome + "  Valor: " + total;
     }
 }
