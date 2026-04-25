@@ -17,7 +17,9 @@ public class Calculadora {
 	
 	
 	public static void main(String[] args) {
-		
+		//Client c1 = new Cliente();
+		//c1.nome = "fulando"
+		//criar classe de armazem de objetos
 		mostrarMenu();
 		
 	}
